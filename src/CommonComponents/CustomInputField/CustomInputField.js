@@ -5,6 +5,7 @@ const CustomInputField=({label,placeholder,value})=>{
     //const CustomInputField=(props)=>{
     //console.log(props);
     //console.log(props.customInputLabel) or console.log(props.customeInputPlaceholder) //these are the attributes passed from the app.js
+    //
     return(
         
         <div className="form-group">
