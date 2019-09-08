@@ -18,8 +18,11 @@ class App extends Component
   state={
     inputvalue:"abc",
     customInputLabel:"Name",
-    customeInputPlaceholder:"Enter your Name",
+    customInputPlaceholder:"Enter your Name",
     customInputValue:"pb",
+    customEmailLabel:"Email",
+    customEmailPlaceholder:"Enter Email",
+    customEmailValue:""
   };
   componentDidMount(){
     //debugger;
@@ -38,11 +41,28 @@ class App extends Component
     })
     console.log(event.target.value);
   }
+  // OnCustomInputFieldChange=(event,targetState)=>{
+  //   //console.log(event);
+  //   //console.log(targetState);
+  //   this.setState({
+  //     customInputValue:event.target.value
+  //   })
+  // }
+  // OnCustomEmailFieldChange=(event,targetState)=>{
+  //   this.setState({
+  //     customEmailValue:event.target.value
+  //   })
+  // }
+  OnFieldChange=(event,targetState)=>{
+     this.setState({      
+      [targetState]:event.target.value
+  })
+}
  /*  onchan=(event)=>{
     console.log(event);
   } */
   render(){
-    const {inputvalue,customInputLabel,customeInputPlaceholder,customInputValue}=this.state;
+    const {inputvalue,customInputLabel,customInputPlaceholder,customInputValue,customEmailLabel,customEmailPlaceholder,customEmailValue}=this.state;
     return(
       //<div>
       //<Fragment>      
@@ -52,11 +72,16 @@ class App extends Component
       placeholder="Here"
       onChange={this.onInputChange}></input>  
       <CustomInputField
-        customInputLabel={customInputLabel} customeInputPlaceholder={customeInputPlaceholder} customInputValue={customInputValue}
+        type={'text'}
+        customInputLabel={customInputLabel} customInputPlaceholder={customInputPlaceholder} customInputValue={customInputValue}
+        OnFieldChange={this.OnFieldChange} targetState={"customInputValue"}
       /> 
       <CustomInputField
-        customInputLabel={customInputLabel} customeInputPlaceholder={customeInputPlaceholder} customInputValue={customInputValue}
-      />    
+        type={'email'}
+        customInputLabel={customEmailLabel} customInputPlaceholder={customEmailPlaceholder} customInputValue={customEmailValue}
+        OnFieldChange={this.OnFieldChange} targetState={"customEmailValue"}
+      /> 
+    
    </>
  //the attibutes inside the customInputField act as the arguments to the prop
  //</Fragment>
