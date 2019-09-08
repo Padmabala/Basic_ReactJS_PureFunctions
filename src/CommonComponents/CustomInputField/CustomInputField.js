@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; 
 
 const CustomInputField=({customInputLabel,customInputPlaceholder,customInputValue,OnFieldChange,type,targetState})=>{
     //props could also be referred like below
@@ -27,4 +28,12 @@ const CustomInputField=({customInputLabel,customInputPlaceholder,customInputValu
     )
 };
 
+CustomInputField.propTypes={
+    OnFieldChang:PropTypes.func.isRequired,    
+    customInputLabel:PropTypes.string.isRequired,
+    customInputPlaceholder:PropTypes.string.isRequired,
+    customInputValue:PropTypes.string.isRequired,
+    type:PropTypes.string.isRequired,
+    targetState:PropTypes.string.isRequired,
+};
 export default CustomInputField;

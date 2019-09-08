@@ -19,10 +19,12 @@ class App extends Component
     inputvalue:"abc",
     customInputLabel:"Name",
     customInputPlaceholder:"Enter your Name",
-    customInputValue:"pb",
+    customInputValue:"",
     customEmailLabel:"Email",
     customEmailPlaceholder:"Enter Email",
-    customEmailValue:""
+    customEmailValue:"",
+    customPasswordLabel:"Password",
+    customPasswordValue:""
   };
   componentDidMount(){
     //debugger;
@@ -62,7 +64,7 @@ class App extends Component
     console.log(event);
   } */
   render(){
-    const {inputvalue,customInputLabel,customInputPlaceholder,customInputValue,customEmailLabel,customEmailPlaceholder,customEmailValue}=this.state;
+    const {inputvalue,customInputLabel,customInputPlaceholder,customInputValue,customEmailLabel,customEmailPlaceholder,customEmailValue,customPasswordLabel,customPasswordValue}=this.state;
     return(
       //<div>
       //<Fragment>      
@@ -80,6 +82,11 @@ class App extends Component
         type={'email'}
         customInputLabel={customEmailLabel} customInputPlaceholder={customEmailPlaceholder} customInputValue={customEmailValue}
         OnFieldChange={this.OnFieldChange} targetState={"customEmailValue"}
+      /> 
+      <CustomInputField
+        type={'password'}
+        customInputLabel={customPasswordLabel} customInputValue={customPasswordValue}
+        OnFieldChange={this.OnFieldChange} targetState={"customPasswordValue"}
       /> 
     
    </>
