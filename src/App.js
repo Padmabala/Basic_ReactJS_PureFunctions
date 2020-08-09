@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CustomInputField from './CommonComponents/CustomInputField/CustomInputField';
+
 //const{Component}=React; //this is object detructuring
 //class App extends React.Component//instead of dot notation , we can even destructure the react object
 //ctrl+space get u the methods defined inside the component
@@ -24,7 +25,11 @@ class App extends Component
     customEmailPlaceholder:"Enter Email",
     customEmailValue:"",
     customPasswordLabel:"Password",
-    customPasswordValue:""
+    customPasswordValue:"",
+    customRetypePasswordLabel:"Retype Password",
+    customRetypePasswordValue:"",
+    customDOBLabel:"Date of Birth",
+    customDOBValue:""
   };
   componentDidMount(){
     //debugger;
@@ -64,12 +69,15 @@ class App extends Component
     console.log(event);
   } */
   render(){
-    const {inputvalue,customInputLabel,customInputPlaceholder,customInputValue,customEmailLabel,customEmailPlaceholder,customEmailValue,customPasswordLabel,customPasswordValue}=this.state;
+    const {inputvalue,customInputLabel,customInputPlaceholder,customInputValue,customEmailLabel,
+      customEmailPlaceholder,customEmailValue,customPasswordLabel,customPasswordValue,customRetypePasswordLabel,
+      customRetypePasswordValue,customDOBLabel,customDOBValue}=this.state;
     return(
       //<div>
       //<Fragment>      
       <>
-      <div>Hello World</div>
+      <form onSubmit>
+      <div>Hello World !</div>
       <input value={inputvalue} 
       placeholder="Here"
       onChange={this.onInputChange}></input>  
@@ -88,7 +96,17 @@ class App extends Component
         customInputLabel={customPasswordLabel} customInputValue={customPasswordValue}
         OnFieldChange={this.OnFieldChange} targetState={"customPasswordValue"}
       /> 
-    
+      <CustomInputField
+        type={'password'}
+        customInputLabel={customRetypePasswordLabel} customInputValue={customRetypePasswordValue}
+        OnFieldChange={this.OnFieldChange} targetState={"customRetypePasswordValue"}
+      /> 
+         <CustomInputField
+        type={'date'}
+        customInputLabel={customDOBLabel} customInputValue={customDOBValue}
+        OnFieldChange={this.OnFieldChange} targetState={"customDOBValue"}
+      />    
+      </form>
    </>
  //the attibutes inside the customInputField act as the arguments to the prop
  //</Fragment>
